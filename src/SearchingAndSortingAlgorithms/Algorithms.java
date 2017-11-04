@@ -1,5 +1,7 @@
 package SearchingAndSortingAlgorithms;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /* 1. Create a method that will find return the first index of a broken egg */
@@ -27,7 +29,7 @@ public class Algorithms {
 		}
 		return Pearls;
 	}
-	
+
 	/* 3. Create a method that will return the height of the tallest person. */
 	public static double findTallest(List<Double> peeps) {
 		double d = 0;
@@ -35,11 +37,11 @@ public class Algorithms {
 			if (peeps.get(c) > d) {
 				d = peeps.get(c);
 			}
-			//d = peeps.get(c);
+			// d = peeps.get(c);
 		}
 		return d;
 	}
-	
+
 	/* 4. Create a method that will find the longest word. */
 	public static String findLongestWord(List<String> words) {
 		String f = "";
@@ -47,44 +49,64 @@ public class Algorithms {
 			if (words.get(e).length() > f.length()) {
 				f = words.get(e);
 			}
-			//f = words.get(e);
+			// f = words.get(e);
 		}
 		return f;
 	}
-	
+
 	/*
-	 * 5. The Morse code for SOS is "... --- ..."
-	 * Create a method that can tell if SOS is contained in a message.
+	 * 5. The Morse code for SOS is "... --- ..." Create a method that can tell if
+	 * SOS is contained in a message.
 	 */
- public static boolean containsSOS(List<String> message) {
-	 for(int g = 0; g < message.size(); g++) {
- if(message.get(g).contains("... --- ...")) {
- return true;
- }
-	 }
-	 return false;
- }
- 
- /* 6. Write a morse code translator to read the messages. Just kidding! */ //√
- 
- /* 7. Sort the exam results from lowest to highest. */
- public static List<Double> sortScores(List<Double> results) {
-	
-	 for(int h = 0; h < results.size(); h++) {
-		 for(int i = h+1; i < results.size(); h++)
-		 if(results.get(h) > results.get(i)) {
-			 results.set(h, results.get(i));
-		 }
-		 else {}
-	 }
-	 return results;
- }
+	public static boolean containsSOS(List<String> message) {
+		for (int g = 0; g < message.size(); g++) {
+			if (message.get(g).contains("... --- ...")) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/* 6. Write a morse code translator to read the messages. Just kidding! */ // √
+
+	/* 7. Sort the exam results from lowest to highest. */
+	public static List<Double> sortScores(List<Double> results) {
+
+		for (int h = 0; h < results.size(); h++) {
+			for (int i = h + 1; i < results.size(); h++)
+				if (results.get(h) > results.get(i)) {
+					results.set(h, results.get(i));
+				} else {
+				}
+		}
+		return results;
+	}
+
 	/* 8. Sort the DNA sequences by length from shortest to longest. */
- 
-  public static String sortDNA(List<String> unsortedDNA) {
-	  
-	  
-  }
- 
- 
+
+	public static List<String> sortDNA(List<String> unsortedDNA) {
+		Collections.sort(unsortedDNA, new Comparator<String>() {
+
+			@Override
+			public int compare(String o1, String o2) {
+				return o1.length() - o2.length();
+			}
+
+		});
+//		for (int j = 0; j < unsortedDNA.size(); j++) {
+//			for (int k = j + 1; k < unsortedDNA.size(); k++) {
+//				System.out.println(unsortedDNA.get(k));
+//				System.out.println(unsortedDNA.get(j));
+//				if (unsortedDNA.get(j).length() > unsortedDNA.get(k).length()) {
+//					unsortedDNA.set(j, unsortedDNA.get(k));
+//				} else {
+//
+//				}
+//
+//			}
+//		}
+//		System.out.println(unsortedDNA);
+		return unsortedDNA;
+	}
+
 }
