@@ -85,28 +85,48 @@ public class Algorithms {
 	/* 8. Sort the DNA sequences by length from shortest to longest. */
 
 	public static List<String> sortDNA(List<String> unsortedDNA) {
-		Collections.sort(unsortedDNA, new Comparator<String>() {
 
-			@Override
-			public int compare(String o1, String o2) {
-				return o1.length() - o2.length();
+		for (int j = 0; j < unsortedDNA.size(); j++) {
+			for (int k = j + 1; k < unsortedDNA.size(); k++) {
+				System.out.println(unsortedDNA.get(k));
+				System.out.println(unsortedDNA.get(j));
+				if (unsortedDNA.get(j).length() > unsortedDNA.get(k).length()) {
+					String temp = unsortedDNA.get(j);
+					unsortedDNA.set(j, unsortedDNA.get(k));
+					unsortedDNA.set(k, temp);
+
+				} else {
+
+				}
+
 			}
-
-		});
-//		for (int j = 0; j < unsortedDNA.size(); j++) {
-//			for (int k = j + 1; k < unsortedDNA.size(); k++) {
-//				System.out.println(unsortedDNA.get(k));
-//				System.out.println(unsortedDNA.get(j));
-//				if (unsortedDNA.get(j).length() > unsortedDNA.get(k).length()) {
-//					unsortedDNA.set(j, unsortedDNA.get(k));
-//				} else {
-//
-//				}
-//
-//			}
-//		}
-//		System.out.println(unsortedDNA);
+		}
+		System.out.println(unsortedDNA);
 		return unsortedDNA;
+	}
+
+	/*
+	 * 9. Sort the words in alphabetical order. Your teacher may need to explain
+	 * compareTo.
+	 */
+
+	public static List<String> sortWords(List<String> sortWords){
+		
+		for (int l = 0; l < sortWords.size(); l++) {
+			for(int m = l+1; m < sortWords.size(); m++) {
+				//int n = sortWords.get(l).compareTo(sortWords.get(m));
+		if(sortWords.get(l).compareTo(sortWords.get(m)) > 0) {
+					String o = sortWords.get(l);
+					sortWords.set(l, sortWords.get(m));
+					sortWords.set(m, o);
+				}
+				else {
+					
+				}
+			}
+		}
+		
+		return sortWords;
 	}
 
 }
